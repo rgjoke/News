@@ -1,0 +1,132 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Comfortaa', cursive;
+}
+
+.bg-grey {
+  background-color: rgb(238, 237, 237);
+}
+
+.fs-1 {
+  font-size: 2.3vh;
+}
+
+.fs-2 {
+  font-size: 1.8vh;
+}
+
+.fs-3 {
+  font-size: 1.9vh;
+}
+
+.fs-4 {
+  font-size: 2vh;
+}
+
+.fs-3 a {
+  text-decoration: none;
+}
+.fs-3:hover {
+  color: white !important;
+}
+
+.bg-black {
+  background-color: #222;
+}
+
+.btn-primary {
+  background: #57DDDF;
+  border-color: #57DDDF;
+  color: black;
+  transition: ease-out 0.3s;
+}
+
+.btn-primary:hover {
+  background: none;
+  color: black;
+  border-color: #57DDDF;
+}
+
+textarea {
+  resize:none
+}
+
+.wc {
+  white-space: normal;
+  word-break:break-all;
+}
+
+.sidebar {
+  height: 100vh;
+}
+
+.facebook {
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+  font-size: 25px;
+  color: white;
+  transition: ease-out 0.5s;
+}
+
+.google {
+  background-color: rgba(0,0,0,0);
+  border-color: rgba(0,0,0,0);
+  font-size: 25px;
+  color: white;
+  transition: ease-out 0.5s;
+}
+
+.google:hover {
+  color: #C5031A;  
+}
+
+.facebook:hover {
+  color: #2C3BD8;
+}
+
+.img-profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.img-profile p {
+  align-items: center;
+  font-size: 25px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-right: 3px;
+}
+
+.button {
+  border-radius: 5px;
+  border-color: rgba(0,0,0,0);
+  font-weight: 500;
+  transition: ease-out 0.5s;
+}
+
+.button:hover {
+  border-color: #57DDDF;
+  color: white;
+  background-color: rgba(0,0,0,0);
+}
+
+.bg-lightaqua {
+  background-color: #57DDDF;
+  border-color: #57DDDF;
+}
+
+.td {
+  text-decoration: none !important;
+}
+
+.text-indent {
+  text-indent: 30px;
+}
+
+.carousel-indicators .active {
+  background-color: #57DDDF
+}
