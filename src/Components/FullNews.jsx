@@ -15,10 +15,10 @@ function FullNews(props) {
         return (
             <Container fluid>
                 <Row>
-                    <Col lg={2} className='bg-black sidebar d-none d-lg-block sticky-md-top'>
+                    <Col lg={2} className='bg-black sidebar sticky-md-top'>
                         <Header />
                     </Col>
-                    <Col lg={10}>
+                    <Col lg={10} md={12}>
                     {props.location.data.map((i, idx) => (
                         <Col key={idx} sm={12} className='text-justify'> 
                             <h3 className='mt-5 font-weight-bold'>{i.title}</h3>
