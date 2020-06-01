@@ -1,18 +1,25 @@
 import React, { useContext } from 'react';
 import Context from './context';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.css';
 
 import Delete from './DeleteNews';
+import Header from './Header';
 
 export default function ContentView() {
     const news = useContext(Context)
     return (
-        <div className='container-fluid'>
+        <Container fluid>
         {news.state.reducerNews !== undefined &&
-            <Row>
+        <Row>
+             <Col md={2} className='bg-black sidebar sticky-top d-sm-none d-md-block'>
+                <Header />
+             </Col>
+             <Col sm={10}>
+                 <h1 className='mt-5'>Новости</h1>
+                <Row>
                 {news.state.reducerNews.map(i => (
                     <Col md={4} key={i.id} className='mt-5'>
                         <div className='bg-grey'>
@@ -39,13 +46,14 @@ export default function ContentView() {
                                 <p className='mr-3 ml-3 fs-4 text-dark'>{i.catagory}</p>
                                 <p className='mr-3 ml-3 fs-2 text-dark'>Автор: <b>{i.login}</b></p>
                                 <p className='mr-3 ml-3 pb-3 fs-2 text-dark'><em>{i.time}</em></p>
-                            </Link>   
+                            </Link>  
                         </div>
                     </Col>
                 ))}
-                
+                </Row>
+            </Col>
             </Row>
         }
-        </div>
+        </Container>
     )
 }

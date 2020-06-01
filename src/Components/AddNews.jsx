@@ -4,13 +4,14 @@ import history from './history';
 import { useContext } from 'react';
 import Context from './context';
 import { Redirect } from 'react-router-dom';
+import { Container, Form } from 'react-bootstrap';
 
 function AddNews() {
     const [body, setBody] = useState();
     const state = useContext(Context);
 
     const handleChange = event  => {
-        setBody({...body, [event.target.name]: event.target.value, 'time': time, login: state.state.reducerAuth[0].login});
+        setBody({...body, [event.target.name]: event.target.value, 'time': time, login: state.state.reducerAuth.firstname});
     }
 
     const Add = event => {
@@ -47,9 +48,9 @@ function AddNews() {
             {state.state ? 
         <div>
             {state.state.reducerAuth ? 
-        <div className='container mt-5'>
+        <Container className='mt-5'>
             <h1>Добавить новость</h1>
-                <form onSubmit={Add}>
+                <Form onSubmit={Add}>
                     <div className='form-row mt-5'>
 
                     <div className='form-group col-md-4'>
@@ -84,8 +85,8 @@ function AddNews() {
 
                     <input type='submit' name='Continue' />
                 </div>
-            </form> 
-        </div>
+            </Form> 
+        </Container>
         : <Redirect to='/' />
         }
         </div>

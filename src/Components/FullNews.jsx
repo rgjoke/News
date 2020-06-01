@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
+import Header from './Header';
 
 function FullNews(props) {
     const [index, setIndex] = useState(0);
@@ -12,8 +13,12 @@ function FullNews(props) {
 
     if(props.location.data) {
         return (
-            <Container>
+            <Container fluid>
                 <Row>
+                    <Col lg={2} className='bg-black sidebar d-none d-lg-block sticky-md-top'>
+                        <Header />
+                    </Col>
+                    <Col lg={10}>
                     {props.location.data.map((i, idx) => (
                         <Col key={idx} sm={12} className='text-justify'> 
                             <h3 className='mt-5 font-weight-bold'>{i.title}</h3>
@@ -34,6 +39,7 @@ function FullNews(props) {
                             <p>{i.time}</p>
                         </Col>
                     ))}
+                    </Col>
                 </Row>
             </Container>
         )

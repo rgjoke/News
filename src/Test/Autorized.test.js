@@ -54,8 +54,4 @@ describe('Autorized Component Auth True', () => {
     it('Prfile firstname', () => {
         expect(newAutorized.find('p.text-white').text()).toEqual(state.reducerAuth.firstname)
     })
-
-    it('Link to page `/add` ', () => {
-        expect(newAutorized.find('Link').prop('to')).toEqual('/add')
-    })
 })

@@ -19,8 +19,8 @@ function Filter() {
         if(event.target.value.length === 0) {
             setResultFilter(undefined);
         }
-        else if(catagory.filter(i => i.includes(event.target.value)).length !== 0) {
-            setResultFilter(catagory.filter(i => i.includes(event.target.value)))
+        else if(catagory.filter(i => i.includes(event.target.value.toLowerCase())).length !== 0) {
+            setResultFilter(catagory.filter(i => i.includes(event.target.value.toLowerCase())))
         }
         else {
             setResultFilter(null);
