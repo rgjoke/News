@@ -130,3 +130,10 @@ textarea {
 .carousel-indicators .active {
   background-color: #57DDDF
 }
+
+@media (min-width: 1px) and (max-width: 991px) {
+  
+  .sidebar {
+    height: 25em;
+  }
+}

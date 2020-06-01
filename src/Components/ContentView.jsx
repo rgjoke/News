@@ -14,10 +14,10 @@ export default function ContentView() {
         <Container fluid>
         {news.state.reducerNews !== undefined &&
         <Row>
-             <Col md={2} className='bg-black sidebar sticky-top d-sm-none d-md-block'>
+             <Col lg={2} className='bg-black sidebar sticky-md-top'>
                 <Header />
              </Col>
-             <Col sm={10}>
+             <Col lg={10} md={12}>
                  <h1 className='mt-5'>Новости</h1>
                 <Row>
                 {news.state.reducerNews.map(i => (
