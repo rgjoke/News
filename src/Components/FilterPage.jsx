@@ -22,7 +22,7 @@ function FilterPage(props) {
                     <Row>
                     {state.state.reducerNews.map(i => (
                         i.catagory === catagory &&
-                        <Col md={4} key={i.id} className='mt-5'>
+                        <Col md={6} lg={4} xl={3} key={i.id} className='mt-5'>
                         <div className='bg-grey'>
                         <Link className='td' to={{
                                 pathname: `/fnews/${i.id}`,

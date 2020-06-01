@@ -21,7 +21,7 @@ export default function ContentView() {
                  <h1 className='mt-5'>Новости</h1>
                 <Row>
                 {news.state.reducerNews.map(i => (
-                    <Col md={4} key={i.id} className='mt-5'>
+                    <Col md={6} lg={4} xl={3} key={i.id} className='mt-5'>
                         <div className='bg-grey'>
                             <img src={i.img1} alt='img' className='img-fluid w-100' style={{height: '200px'}}/>
                             {news.state.reducerAuth &&

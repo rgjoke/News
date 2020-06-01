@@ -20,7 +20,7 @@ function FullNews(props) {
                     </Col>
                     <Col lg={10} md={12}>
                     {props.location.data.map((i, idx) => (
-                        <Col key={idx} sm={12} className='text-justify'> 
+                        <Col key={idx} md={6} lg={4} xl={3} className='text-justify'> 
                             <h3 className='mt-5 font-weight-bold'>{i.title}</h3>
                             <Carousel activeIndex={index} onSelect={handleSelect} className='mt-5'>
                                 <Carousel.Item>
