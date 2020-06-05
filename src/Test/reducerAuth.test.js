@@ -5,10 +5,10 @@ describe('auth reducer', () => {
         let state = initialState;
         const action = {
             type: 'Auth',
-            auth: {id: 1, login: 'Test'}
+            auth: {id: 1, firstname: 'Test'}
         }
     
-    expect(reducerAuth(state, action)).toEqual(state = [action.auth])
+    expect(reducerAuth(state, action)).toEqual(state = action.auth)
     })
 
     it('Action Auth LogIn false', () => {

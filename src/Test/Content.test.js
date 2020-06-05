@@ -15,11 +15,7 @@ describe('Content Component', () => {
         <Content />
     </Context.Provider>
     ).dive();
-
-    it('Header', () => {
-        expect(newContent.find('Header')).toHaveLength(1)
-    })
-
+        
     it('ContentView', () => {
         expect(newContent.find('ContentView')).toHaveLength(1)
     })

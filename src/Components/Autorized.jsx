@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 
 function Autorized() {
     const state = useMyContext();
-    
+
     return (
         <div>
             {state.state.reducerAuth ?    

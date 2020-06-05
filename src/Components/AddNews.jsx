@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import time from './Time';
 import history from './history';
-import { useContext } from 'react';
-import Context from './context';
+import { useMyContext } from './context';
 import { Redirect } from 'react-router-dom';
 import { Container, Form } from 'react-bootstrap';
 
 function AddNews() {
-    const [body, setBody] = useState();
-    const state = useContext(Context);
+    const [body, setBody] = useState('');
+    const state = useMyContext();
 
     const handleChange = event  => {
         setBody({...body, [event.target.name]: event.target.value, 'time': time, login: state.state.reducerAuth.firstname});
+        console.log(body)
     }
 
     const Add = event => {
@@ -50,12 +50,12 @@ function AddNews() {
             {state.state.reducerAuth ? 
         <Container className='mt-5'>
             <h1>Добавить новость</h1>
-                <Form onSubmit={Add}>
+                <Form onSubmit={() => Add}>
                     <div className='form-row mt-5'>
 
                     <div className='form-group col-md-4'>
                         <label>Ссылка на первую картинку:</label>
-                        <input className='form-control' name='img1' type='text' placeholder='Введите ссылку на картинку' required onChange={handleChange} />
+                        <input className='form-control' name='img1' type='text' placeholder='Введите ссылку на картинку' required onChange={event => handleChange(event)} />
                     </div>
 
                     <div className='form-group col-md-4'>

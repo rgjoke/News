@@ -1,13 +1,13 @@
-import React, { useContext, useState } from 'react';
-import Context from './context';
+import React, { useState } from 'react';
+import { useMyContext } from './context';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter } from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
 
-function Filter() {
-    const state = useContext(Context);
+function Filter(event) {
+    const state =  useMyContext();
     const [resultFilter, setResultFilter] = useState();
     const a = [];
     state.state.reducerNews.map(i => (
@@ -16,11 +16,12 @@ function Filter() {
     const catagory = a.filter((i,j,k) => k.indexOf(i) === j);
 
     const handleChange = event => {
-        if(event.target.value.length === 0) {
+        console.log(event)
+        if(event.currentTarget.value.length === 0) {
             setResultFilter(undefined);
         }
-        else if(catagory.filter(i => i.includes(event.target.value.toLowerCase())).length !== 0) {
-            setResultFilter(catagory.filter(i => i.includes(event.target.value.toLowerCase())))
+        else if(catagory.filter(i => i.includes(event.currentTarget.value.toLowerCase())).length !== 0) {
+            setResultFilter(catagory.filter(i => i.includes(event.currentTarget.value.toLowerCase())))
         }
         else {
             setResultFilter(null);
@@ -31,7 +32,7 @@ function Filter() {
     return (
         <div>
             <div className="input-group mb-3 mt-5">
-                <input type='text' name='filter' className="form-control" autoComplete='off' onChange={handleChange} style={{height: '30px'}} />
+                <input type='text' name='filter' className="form-control" onChange={handleChange} style={{height: '30px'}}  />
                 <div className="input-group-append">
                     <i className='input-group-text bg-lightaqua text-dark'><FontAwesomeIcon icon={faFilter} /></i>
                 </div>

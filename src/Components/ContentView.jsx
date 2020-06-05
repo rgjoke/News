@@ -1,5 +1,5 @@
-import React, { useContext } from 'react';
-import Context from './context';
+import React  from 'react';
+import { useMyContext } from './context';
 import { Row, Col, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,7 +9,8 @@ import Delete from './DeleteNews';
 import Header from './Header';
 
 export default function ContentView() {
-    const news = useContext(Context)
+    const news = useMyContext()
+
     return (
         <Container fluid>
         {news.state.reducerNews !== undefined &&
@@ -42,7 +43,11 @@ export default function ContentView() {
                                         :   <h5 className='font-weight-bold fs-1 text-dark'>{i.title.substring(0, 25)}...</h5>
                                     }
                                 </div> 
-                                <p className='text-justify ml-3 mr-3 wc fs-4 text-dark'>{i.body.substring(0, 80)}...</p>
+                                {i.body.length < 80 ?
+                                    <p className='text-justify ml-3 mr-3 wc fs-4 text-dark'>{i.body}</p>    
+                                    :
+                                    <p className='text-justify ml-3 mr-3 wc fs-4 text-dark'>{i.body.substring(0, 80)}...</p>
+                                }
                                 <p className='mr-3 ml-3 fs-4 text-dark'>{i.catagory}</p>
                                 <p className='mr-3 ml-3 fs-2 text-dark'>Автор: <b>{i.login}</b></p>
                                 <p className='mr-3 ml-3 pb-3 fs-2 text-dark'><em>{i.time}</em></p>
