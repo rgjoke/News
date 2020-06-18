@@ -15,7 +15,7 @@ export default function ContentView() {
         <Container fluid>
         {news.state.reducerNews !== undefined &&
         <Row>
-             <Col lg={2} className='bg-black sidebar sticky-md-top'>
+            <Col lg={2} className='bg-black sticky-top sidebar'>
                 <Header />
              </Col>
              <Col lg={10} md={12}>

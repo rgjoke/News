@@ -9,9 +9,8 @@ function AddNews() {
     const [body, setBody] = useState('');
     const state = useMyContext();
 
-    const handleChange = event  => {
-        setBody({...body, [event.target.name]: event.target.value, 'time': time, login: state.state.reducerAuth.firstname});
-        console.log(body)
+    const handleChange = ( {target: {name, value} })  => {
+        setBody({...body, [name]: value, 'time': time, login: state.state.reducerAuth.firstname});
     }
 
     const Add = event => {
@@ -50,7 +49,7 @@ function AddNews() {
             {state.state.reducerAuth ? 
         <Container className='mt-5'>
             <h1>Добавить новость</h1>
-                <Form onSubmit={() => Add}>
+                <Form onSubmit={Add}>
                     <div className='form-row mt-5'>
 
                     <div className='form-group col-md-4'>

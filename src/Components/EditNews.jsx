@@ -1,18 +1,17 @@
-import React, { useState, useContext } from 'react';
-import { Container } from 'react-bootstrap';
-import Context from './context';
+import React, { useState } from 'react';
+import { Container, Form } from 'react-bootstrap';
+import { useMyContext } from './context';
 import { Redirect } from 'react-router-dom';
 
 import time from './Time';
 import history from './history';
 
-
 function EditNews(props) {
     const [body, setBody] = useState();
-    const state = useContext(Context);
+    const state = useMyContext();
 
-    const handleChange = event  => {
-        setBody({...body, [event.target.name]: event.target.value, 'time': time});
+    const handleChange = ( {target: {name, value} })  => {
+        setBody(() => ({...body, [name]: value, 'time': time}));
     }
 
     const Edit = event => {
@@ -51,7 +50,7 @@ function EditNews(props) {
                 {state.state.reducerAuth ? 
         <Container className='mt-5'>
             <h1>Редактирование новости</h1>
-            <form onSubmit={Edit}>
+            <Form onSubmit={Edit}>
                 <div className='form-row mt-5'>
 
                     <div className='form-group col-md-4'>
@@ -86,7 +85,7 @@ function EditNews(props) {
 
                     <input type='submit' value='Сохранить' />
                 </div>
-        </form>
+        </Form>
         </Container>
         : <Redirect to='/' />
         }

@@ -16,7 +16,6 @@ function Filter(event) {
     const catagory = a.filter((i,j,k) => k.indexOf(i) === j);
 
     const handleChange = event => {
-        console.log(event)
         if(event.currentTarget.value.length === 0) {
             setResultFilter(undefined);
         }

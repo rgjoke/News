@@ -64,7 +64,6 @@ describe('ContentView Component Elements', () => {
                 'title': reducerNews[0].title
             }]
         }
-        //console.log(wrapper.find('Link').at(1).prop(`to`))
         expect(wrapper.find('Link').at(1).first().prop('to')).toEqual(props)
     })
 

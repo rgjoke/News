@@ -1,9 +1,8 @@
 import React from 'react';
-import { mount, shallow, render } from 'enzyme';
+import { shallow } from 'enzyme';
 import * as ContextModule from '../Components/context';
 import Context from '../Components/context';
 import AddNews from '../Components/AddNews';
-import { act } from 'react-dom/test-utils';
 
 describe('Add News Component', () => {
     describe('Auth true', () => {
@@ -34,7 +33,7 @@ describe('Add News Component', () => {
         expect(wrapper.find('h1').text()).toEqual('Добавить новость')
     })
 
-    it('hueta', () => {
+    it('onSubmit form', () => {
         const submit = jest.fn().mockImplementation((cb) => () => cb({test: 'test'}));
        wrapper.find('Form').simulate('submit', {preventDefault () {}, onSubmit: submit()});
         expect(submit).toHaveBeenCalledTimes(1)

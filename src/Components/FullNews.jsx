@@ -15,12 +15,13 @@ function FullNews(props) {
         return (
             <Container fluid>
                 <Row>
-                    <Col lg={2} className='bg-black sidebar sticky-md-top'>
+                    <Col lg={2} className='bg-black sidebar sticky-top'>
                         <Header />
                     </Col>
                     <Col lg={10} md={12}>
+                        <Row>
                     {props.location.data.map((i, idx) => (
-                        <Col key={idx} md={6} lg={4} xl={3} className='text-justify'> 
+                        <Col key={idx} xl={12} className='text-justify'> 
                             <h3 className='mt-5 font-weight-bold'>{i.title}</h3>
                             <Carousel activeIndex={index} onSelect={handleSelect} className='mt-5'>
                                 <Carousel.Item>
@@ -39,6 +40,7 @@ function FullNews(props) {
                             <p>{i.time}</p>
                         </Col>
                     ))}
+                    </Row>
                     </Col>
                 </Row>
             </Container>

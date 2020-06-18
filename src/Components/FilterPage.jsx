@@ -18,10 +18,10 @@ function FilterPage(props) {
                     <Header />
                 </Col>
                 <Col lg={10} md={12}>
-                    <h1 className='mt-5'>{catagory}</h1>
+                    <h1 className='mt-5 d-flex justify-content-center'>{catagory}</h1>
                     <Row>
                     {state.state.reducerNews.map(i => (
-                        i.catagory === catagory &&
+                        i.catagory.charAt(0).toUpperCase() + i.catagory.substr(1).toLowerCase() === catagory &&
                         <Col md={6} lg={4} xl={3} key={i.id} className='mt-5'>
                         <div className='bg-grey'>
                         <Link className='td' to={{
@@ -55,20 +55,3 @@ function FilterPage(props) {
 export default FilterPage;
 
 
-/*
-
-
-{state.reducerNews.map(i => (
-                                            i.catagory === catagory &&
-                                                <div>
-                                                <img src={i.img1} alt='text' />
-                                                <p>{i.title}</p>
-                                                <p>{i.body}</p>
-                                                <p>{i.catagory}</p>
-                                                <p>{i.login}</p>
-                                                <p>{i.time}</p>
-                                                </div>
-                                        ))}
-
-
-                                        */

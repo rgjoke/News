@@ -136,4 +136,8 @@ textarea {
   .sidebar {
     height: 32em;
   }
+
+  .sticky-top {
+    position: relative !important;
+  }
 }
