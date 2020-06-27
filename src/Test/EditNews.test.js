@@ -47,11 +47,5 @@ describe('Edit News Component', () => {
        wrapper.find('Form').simulate('submit', {preventDefault () {}, onSubmit: submit()});
         expect(submit).toHaveBeenCalledTimes(1)
     })
-    /*
-    it('input test', () => {
-        const handleChange = jest.fn().mockImplementation();
-        wrapper.find('[name="img1"]').simulate('change', {target: {name: 'test', value: 'test'}}, {onChange: handleChange()})
-        expect(handleChange).toHaveBeenCalledTimes(1)
-    })*/
     })
 })

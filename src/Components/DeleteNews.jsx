@@ -4,37 +4,39 @@ import { useContext } from 'react';
 import Context from './context';
 
 function Delete(props) {
-    const state = useContext(Context);
+  const state = useContext(Context);
 
-    function Remove() {
+  function Remove() {
     const url = 'http://localhost:3001/news';
     fetch(url + '/' + props.id, {
-        method: 'DELETE'
+      method: 'DELETE',
     })
-    .then(res => isGet())
-    .catch(err => alert(err))
+      .then((res) => isGet())
+      .catch((err) => alert(err));
+  }
+
+  async function isGet() {
+    try {
+      const response = await fetch('http://localhost:3001/news');
+      const news = await response.json();
+      state.dispatch({
+        type: 'News',
+        data: news,
+      });
+    } catch (e) {
+      alert('Ошибка: ' + e.status);
     }
 
-    const isGet = () => {
-        const url = 'http://localhost:3001/news'
-        fetch(url)
-        .then(res => res.json())
-        .then(response => {
-            state.dispatch({
-                type: 'News',
-                data: response
-            })
-        })
-        .catch(err => alert(err))
-    
-        history.push('/')
-        }
+    history.push('/');
+  }
 
-    return (
-        <div>
-            <button className='btn btn-primary btn-sm' onClick={Remove}>Удалить</button>
-        </div>
-    )
+  return (
+    <div>
+      <button className="btn btn-primary btn-sm" onClick={Remove}>
+        Удалить
+      </button>
+    </div>
+  );
 }
 
 export default Delete;

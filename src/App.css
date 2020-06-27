@@ -36,8 +36,8 @@ body {
 }
 
 .btn-primary {
-  background: #57DDDF;
-  border-color: #57DDDF;
+  background: #57dddf;
+  border-color: #57dddf;
   color: black;
   transition: ease-out 0.3s;
 }
@@ -45,16 +45,16 @@ body {
 .btn-primary:hover {
   background: none;
   color: black;
-  border-color: #57DDDF;
+  border-color: #57dddf;
 }
 
 textarea {
-  resize:none
+  resize: none;
 }
 
 .wc {
   white-space: normal;
-  word-break:break-all;
+  word-break: break-all;
 }
 
 .sidebar {
@@ -62,27 +62,27 @@ textarea {
 }
 
 .facebook {
-  background-color: rgba(0,0,0,0);
-  border-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
   font-size: 25px;
   color: white;
   transition: ease-out 0.5s;
 }
 
 .google {
-  background-color: rgba(0,0,0,0);
-  border-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
   font-size: 25px;
   color: white;
   transition: ease-out 0.5s;
 }
 
 .google:hover {
-  color: #C5031A;  
+  color: #c5031a;
 }
 
 .facebook:hover {
-  color: #2C3BD8;
+  color: #2c3bd8;
 }
 
 .img-profile {
@@ -93,30 +93,29 @@ textarea {
 
 .img-profile p {
   align-items: center;
-  font-size: 2.7vh;
+  font-size: 2.9vh;
   font-weight: bold;
   display: flex;
   justify-content: center;
-  margin-top: 8px;
-  margin-right: 3px;
+  margin-top: 12px;
 }
 
 .button {
   border-radius: 5px;
-  border-color: rgba(0,0,0,0);
+  border-color: rgba(0, 0, 0, 0);
   font-weight: 500;
   transition: ease-out 0.5s;
 }
 
 .button:hover {
-  border-color: #57DDDF;
+  border-color: #57dddf;
   color: white;
-  background-color: rgba(0,0,0,0);
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .bg-lightaqua {
-  background-color: #57DDDF;
-  border-color: #57DDDF;
+  background-color: #57dddf;
+  border-color: #57dddf;
 }
 
 .td {
@@ -128,11 +127,10 @@ textarea {
 }
 
 .carousel-indicators .active {
-  background-color: #57DDDF
+  background-color: #57dddf;
 }
 
 @media (min-width: 1px) and (max-width: 991px) {
-  
   .sidebar {
     height: 32em;
   }
