@@ -1,15 +1,15 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
 
 import { Row, Col } from 'react-bootstrap';
 
 import { Link } from 'react-router-dom';
 
-import Context from './context';
 import Header from './Header';
+import { useMyContext } from './context';
 
 function FilterPage(props) {
-  const state = useContext(Context);
+  const state = useMyContext();
   const catagory = props.match.params.catagory;
 
   return (
@@ -44,24 +44,15 @@ function FilterPage(props) {
                               },
                             ],
                           }}>
-                          <img
-                            src={i.img1}
-                            alt="img"
-                            className="img-fluid w-100"
-                            style={{ height: '200px' }}
-                          />
+                          <img src={i.img1} alt="img" className="img-fluid w-100" style={{ height: '200px' }} />
                           <div className="mt-3 ml-3 mr-3">
                             {i.title.length < 25 ? (
                               <h5 className="font-weight-bold wc text-dark">{i.title}</h5>
                             ) : (
-                              <h5 className="font-weight-bold fs-1 text-dark">
-                                {i.title.substring(0, 25)}...
-                              </h5>
+                              <h5 className="font-weight-bold fs-1 text-dark">{i.title.substring(0, 25)}...</h5>
                             )}
                           </div>
-                          <p className="text-justify ml-3 mr-3 wc fs-4 text-dark">
-                            {i.body.substring(0, 80)}...
-                          </p>
+                          <p className="text-justify ml-3 mr-3 wc fs-4 text-dark">{i.body.substring(0, 80)}...</p>
                           <p className="mr-3 ml-3 fs-4 text-dark">{i.catagory}</p>
                           <p className="mr-3 ml-3 fs-2 text-dark">
                             Автор: <b>{i.login}</b>
