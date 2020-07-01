@@ -6,38 +6,47 @@ import { Redirect } from 'react-router-dom';
 import time from './Time';
 import history from './history';
 
+import { NEWS_RECEIPT } from '../actions/types';
+
 function EditNews(props) {
   const [body, setBody] = useState();
   const state = useMyContext();
 
   const handleChange = ({ target: { name, value } }) => {
-    setBody(() => ({ ...body, [name]: value, time: time }));
+    setBody(() => ({
+      ...body,
+      [name]: value.charAt(0).toUpperCase() + value.substr(1).toLowerCase(),
+      time: time,
+    }));
   };
 
-  const Edit = (event) => {
+  async function Edit(event) {
     event.preventDefault();
-    const url = 'http://localhost:3001/news';
-    fetch(url + '/' + props.match.params.id, {
-      method: 'PATCH',
-      body: JSON.stringify(body),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => isGet())
-      .catch((err) => alert(err));
-  };
+    try {
+      const response = await fetch('http://localhost:3001/news/' + props.match.params.id, {
+        method: 'PATCH',
+        body: JSON.stringify(body),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      isGetRequest();
+      return await response.json();
+    } catch (e) {
+      alert('Ошибка: ' + e.status);
+    }
+  }
 
-  async function isGet() {
+  async function isGetRequest() {
     try {
       const response = await fetch('http://localhost:3001/news');
       const news = await response.json();
       state.dispatch({
-        type: 'News',
+        type: NEWS_RECEIPT,
         data: news,
       });
     } catch (e) {
-      alert('Ошибка: ' + e);
+      alert('Ошибка: ' + e.status);
     }
 
     history.push('/');

@@ -130,6 +130,14 @@ textarea {
   background-color: #57dddf;
 }
 
+.spinner {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @media (min-width: 1px) and (max-width: 991px) {
   .sidebar {
     height: 32em;

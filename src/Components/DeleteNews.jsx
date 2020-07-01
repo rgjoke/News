@@ -1,26 +1,32 @@
 import React from 'react';
 import history from './history';
 import { useContext } from 'react';
+
 import Context from './context';
+
+import { NEWS_RECEIPT } from '../actions/types';
 
 function Delete(props) {
   const state = useContext(Context);
 
-  function Remove() {
-    const url = 'http://localhost:3001/news';
-    fetch(url + '/' + props.id, {
-      method: 'DELETE',
-    })
-      .then((res) => isGet())
-      .catch((err) => alert(err));
+  async function Remove() {
+    try {
+      const response = await fetch('http://localhost:3001/news/' + props.id, {
+        method: 'DELETE',
+      });
+      isGetRequest();
+      return await response.json();
+    } catch (e) {
+      alert('Ошибка: ' + e.status);
+    }
   }
 
-  async function isGet() {
+  async function isGetRequest() {
     try {
       const response = await fetch('http://localhost:3001/news');
       const news = await response.json();
       state.dispatch({
-        type: 'News',
+        type: NEWS_RECEIPT,
         data: news,
       });
     } catch (e) {

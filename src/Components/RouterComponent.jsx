@@ -1,7 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import { Router, Switch, Route } from 'react-router-dom';
-import history from './history';
 
+import history from './history';
 import Content from './Content';
 import AddNews from './AddNews';
 import EditNews from './EditNews';
@@ -9,6 +9,8 @@ import FullNews from './FullNews';
 import Context from './context';
 import rootReducer from '../Reducers/rootReducer';
 import FilterPage from './FilterPage';
+
+import { NEWS_RECEIPT } from '../actions/types';
 
 function RouterComponent() {
   const [state, dispatch] = useReducer(rootReducer);
@@ -19,11 +21,11 @@ function RouterComponent() {
         const response = await fetch('http://localhost:3001/news');
         const news = await response.json();
         dispatch({
-          type: 'News',
+          type: NEWS_RECEIPT,
           data: news,
         });
       } catch (e) {
-        alert('Ошибка: ' + e.status);
+        alert('Ошибка: ' + e);
       }
     }
     fetchData();
