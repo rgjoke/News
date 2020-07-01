@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/ololo/static/css/main.49161108.chunk.css",
+    "main.js": "/ololo/static/js/main.0b46e3df.chunk.js",
+    "main.js.map": "/ololo/static/js/main.0b46e3df.chunk.js.map",
+    "runtime-main.js": "/ololo/static/js/runtime-main.0ed2f40f.js",
+    "runtime-main.js.map": "/ololo/static/js/runtime-main.0ed2f40f.js.map",
+    "static/css/2.69121389.chunk.css": "/ololo/static/css/2.69121389.chunk.css",
+    "static/js/2.fb02ee1b.chunk.js": "/ololo/static/js/2.fb02ee1b.chunk.js",
+    "static/js/2.fb02ee1b.chunk.js.map": "/ololo/static/js/2.fb02ee1b.chunk.js.map",
+    "index.html": "/ololo/index.html",
+    "precache-manifest.4ca5e67cb47b8fcac24f7b4f41a4da0f.js": "/ololo/precache-manifest.4ca5e67cb47b8fcac24f7b4f41a4da0f.js",
+    "service-worker.js": "/ololo/service-worker.js",
+    "static/css/2.69121389.chunk.css.map": "/ololo/static/css/2.69121389.chunk.css.map",
+    "static/css/main.49161108.chunk.css.map": "/ololo/static/css/main.49161108.chunk.css.map",
+    "static/js/2.fb02ee1b.chunk.js.LICENSE.txt": "/ololo/static/js/2.fb02ee1b.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0ed2f40f.js",
+    "static/css/2.69121389.chunk.css",
+    "static/js/2.fb02ee1b.chunk.js",
+    "static/css/main.49161108.chunk.css",
+    "static/js/main.0b46e3df.chunk.js"
+  ]
+}
