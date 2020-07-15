@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useMyContext } from './context';
 
@@ -10,18 +10,19 @@ import { faFilter } from '@fortawesome/free-solid-svg-icons';
 function Filter() {
   const state = useMyContext();
   const [resultFilter, setResultFilter] = useState();
+  const [catagory, setCatagory] = useState();
 
-  const a = [];
-  state.state.reducerNews.map((i) => a.push(i.catagory));
-  const catagory = a.filter((i, j, k) => k.indexOf(i) === j);
+  useEffect(() => {
+    const a = [];
+    state.state.reducerNews.map((i) => a.push(i.catagory));
+    setCatagory(a.filter((i, j, k) => k.indexOf(i) === j));
+  }, [state.state]);
 
   const handleChange = ({ target: { value } }) => {
-    if (value.length === 0) {
+    if (value === '') {
       setResultFilter(undefined);
-    } else if (catagory.filter((i) => i.includes(value.charAt(0).toUpperCase() + value.substr(1))).length !== 0) {
-      setResultFilter(catagory.filter((i) => i.includes(value.charAt(0).toUpperCase() + value.substr(1))));
-    } else {
-      setResultFilter(null);
+    } else if (catagory.filter((i) => i.search(value) !== -1)) {
+      setResultFilter(catagory.filter((i) => i.toLowerCase().search(value.toLowerCase()) !== -1));
     }
   };
 
@@ -37,7 +38,7 @@ function Filter() {
       </div>
       {resultFilter !== undefined ? (
         <div className="fs-3">
-          {resultFilter === null ? (
+          {!resultFilter[0] ? (
             <p className="text-white fs-3">Не найдено...</p>
           ) : (
             <div>
@@ -57,19 +58,23 @@ function Filter() {
         </div>
       ) : (
         <div>
-          {catagory.map(
-            (i, idx) =>
-              idx <= 4 && (
-                <div key={idx} className="fs-3 ml-2">
-                  <Link to={`/catagory/${i}`}>
-                    {i.length < 16 ? (
-                      <p className="text-muted fs-3 wc">{i}</p>
-                    ) : (
-                      <p className="text-muted fs-3 wc">{i.substring(0, 14)}...</p>
-                    )}
-                  </Link>
-                </div>
-              ),
+          {catagory && (
+            <div>
+              {catagory.map(
+                (i, idx) =>
+                  idx <= 4 && (
+                    <div key={idx} className="fs-3 ml-2">
+                      <Link to={`/catagory/${i}`}>
+                        {i.length < 16 ? (
+                          <p className="text-muted fs-3 wc">{i}</p>
+                        ) : (
+                          <p className="text-muted fs-3 wc">{i.substring(0, 14)}...</p>
+                        )}
+                      </Link>
+                    </div>
+                  ),
+              )}
+            </div>
           )}
         </div>
       )}
