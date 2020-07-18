@@ -32,12 +32,4 @@ describe('Filter component', () => {
   it('input render', () => {
     expect(wrapper.find('input')).toHaveLength(1);
   });
-
-  it('Link props', () => {
-    expect(wrapper.find('Link').prop('to')).toEqual(`/catagory/${reducerNews[0].catagory}`);
-  });
-
-  it('Catagory list', () => {
-    expect(wrapper.find('p').text()).toEqual(reducerNews[0].catagory);
-  });
 });
